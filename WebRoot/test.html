@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+function BrowseServer( inputId )
+{
+var finder = new CKFinder() ;
+
+finder.BasePath = 'ckfinder/' ;
+alert(finder.BasePath);
+finder.selectActionFunction  = SetFileField ;
+finder.selectActionData  = inputId ;
+finder.popup() ;
+}
+
+function SetFileField( fileUrl, data )
+{
+document.getElementById( data["selectActionData"] ).value = fileUrl ;
+}
+<!-- 
+function Time(){ 
+if (!document.layers&&!document.all) 
+return; 
+var Timer=new Date() 
+var hours=Timer.getHours() 
+var minutes=Timer.getMinutes() 
+var seconds=Timer.getSeconds() 
+var noon="AM" 
+if (hours>12){ 
+noon="PM" 
+hours=hours-12 
+} 
+if (hours==0) 
+hours=12; 
+if (minutes<=9) 
+minutes="0"+minutes; 
+if (seconds<=9) 
+seconds="0"+seconds; 
+
+//change font size here to your desire 
+myclock="<font size='4' face='Arial' color=blue>"+hours+":"+minutes+":"+seconds+" "+noon+"</b></font>" ; 
+if (document.layers){ 
+document.layers.position.document.write(myclock) ; 
+document.layers.position.document.close() ; 
+} 
+else if (document.all) { 
+position.innerHTML=myclock; 
+setTimeout("Time()",1000) 
+} 
+} 
+Time(); 
+//--> 
+</script> 
+...
+<span id="position" style="position:absolute;left:441px;top:190px; width: 128px; height: 30px"></span> 
+<p>
+<strong>Selected File URL</strong><br/>
+<input id="xFilePath" name="FilePath" type="text" size="60" />
+<input type="button" value="Browse Server" onclick="BrowseServer('xFilePath');" />
+</p>
+<p>
+<strong>Selected Image URL</strong><br/>
+<input id="xImagePath" name="ImagePath" type="text" size="60" />
+<input type="button" value="Browse Server" onclick="BrowseServer('xImagePath');" />
+</p>
+  </body>
+</html>
